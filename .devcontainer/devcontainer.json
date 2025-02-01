@@ -1,0 +1,28 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/typescript-node
+{
+    "name": "Nuxt Module: Firebase Emulators",
+    "image": "fechdev/devcontainer-typescript-node-firebase:1-22-bookworm",
+    "mounts": ["source=pnpm-store,target=/home/node/.pnpm-store,type=volume"],
+    "postCreateCommand": "pnpm config set store-dir /home/node/.pnpm-store && sudo chown -R node:node /home/node/.pnpm-store",
+    "customizations": {
+      "vscode": {
+        "extensions": [
+          "dbaeumer.vscode-eslint",
+          "esbenp.prettier-vscode",
+          "Vue.volar",
+          "vitest.explorer",
+          "antfu.iconify",
+          "bradlc.vscode-tailwindcss",
+          "SamaTech.postcss-vue",
+          "praburangki.nuxt-snippets",
+          "geekabe.iconify-search",
+          "eamodio.gitlens",
+          "pflannery.vscode-versionlens",
+          "vivaxy.vscode-conventional-commits",
+          "YoavBls.pretty-ts-errors"
+        ]
+      }
+    }
+  }
+  
