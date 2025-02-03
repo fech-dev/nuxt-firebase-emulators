@@ -14,7 +14,6 @@ export default defineNuxtPlugin((nuxt) => {
 
   console.info('Firebase Emulators: ')
 
-  console.log(firebaseEmulators)
   if (firebaseEmulators?.firestore.enabled) {
     console.info('🛜 Connecting to Firesore Emulator')
     const db = useFirestore()
