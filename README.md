@@ -20,9 +20,58 @@ Install the module to your Nuxt application with one command:
 npx nuxi module add nuxt-firebase-emulators
 ```
 
-⚠️⚠️⚠️ This module wont install the nuxt-vuefire module, you add it yourself.
+⚠️ This module relies on the `nuxt-vuefire` module, ensure to have it installed.
 
-That's it! You can now use Firebase Emulators in your Nuxt app ✨
+
+## How it works
+The module will install a client plugin where will handle the connection to emulators.
+This plugin will be ignored if the application is run in production mode.
+
+## Config
+You can configure which emulators to connect through the `firebaseEmulators` config key.
+
+```typescript
+//nuxt.config.ts
+export default defineNuxtConfig({
+  modules: [
+    'nuxt-firebase-emulators', // <-- It's important to put this module before the nuxt-vuefire module.
+    'nuxt-vuefire',
+  ],
+
+  firebaseEmulators: {
+    auth: {
+      enabled: process.env.FIREBASE_EMULATOR_AUTH === 'true', // env variables are read as strings... so we need to convert them to the right type
+      port: 9091,
+    },
+    firestore: {
+      enabled: process.env.FIREBASE_EMULATOR_FIRESTORE === 'true',
+      port: 3031,
+    },
+  },
+
+  vuefire: {
+    config: {
+      apiKey: process.env.FIREBASE_API_KEY,
+      authDomain: process.env.FIREBASE_AUTH_DOMAIN,
+      projectId: process.env.FIREBASE_PROJECT_ID,
+      storageBucket: process.env.FIREBASE_STORAGE_BUCKET,
+      messagingSenderId: process.env.FIREBASE_MESSAGING_SENDER_ID,
+      appId: process.env.FIREBASE_APP_ID,
+    },
+    auth: {
+      enabled: true,
+    },
+  },
+
+})
+
+```
+
+## Available Emulators
+
+- auth
+- firestore
+- ...others to be implemented soon
 
 
 ## Contribution
