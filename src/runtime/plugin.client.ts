@@ -1,6 +1,7 @@
+import { defineNuxtPlugin, useRuntimeConfig } from 'nuxt/app'
 import { connectFirestoreEmulator } from 'firebase/firestore'
 import { connectAuthEmulator } from 'firebase/auth'
-import { defineNuxtPlugin, useRuntimeConfig } from 'nuxt/app'
+import { useFirestore, useFirebaseAuth } from 'vuefire'
 
 export default defineNuxtPlugin((nuxt) => {
   if (!('vuefire' in nuxt.$config.public)) {
