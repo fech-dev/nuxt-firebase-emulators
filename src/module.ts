@@ -40,7 +40,7 @@ export default defineNuxtModule<FirebaseEmulatorsModuleOptions>({
 
     nuxt.options.runtimeConfig.public.firebaseEmulators = { ...options }
 
-    addPlugin(resolve('./runtime/plugin.client.ts'))
+    addPlugin(resolve('./runtime/plugin.client'))
   },
 })
 
