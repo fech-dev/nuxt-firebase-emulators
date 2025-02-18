@@ -3,9 +3,7 @@ import { connectAuthEmulator } from 'firebase/auth'
 import { defineNuxtPlugin, useRuntimeConfig } from 'nuxt/app'
 
 export default defineNuxtPlugin((nuxt) => {
-  if (process.env.NODE_ENV === 'production') return
-
-  if (!('vuefire' in nuxt.$config)) {
+  if (!('vuefire' in nuxt.$config.public)) {
     throw new Error('nuxt-firebase-emulators error: nuxt-vuefire not detected')
   }
 
